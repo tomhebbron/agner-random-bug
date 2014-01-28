@@ -1,6 +1,9 @@
 
+tmp-agner-src/
 agner-src/
 pyAgnerRandom.cpp
+pyAgnerRandom.pyd
+*.exe
 
 .idea/
 
