@@ -44,17 +44,39 @@ void test_each(int seed)
 {
     dotest<CRandomMersenne>(seed);
     dotest<CRandomSFMT>(seed);
-
-    dotest<CRandomSFMTA>(seed);
+    //now assembler versions.
     dotest<CRandomMersenneA>(seed);
+    dotest<CRandomSFMTA>(seed);
 }
 
 
 int main (int argc, char *argv[]) {
-    
-    //Single parameter - the seed
-    int given_seed = 22342;
-    if (argc > 1) given_seed = atoi(argv[1]);
-	test_each(given_seed);
-   return 0;
+
+    //minimal_randoma_test seed [PRNG [SFMT SFMTA Mersenne MersenneA]]
+    int seed = 22342; // default - don't use.
+    if (argc > 1) seed = atoi(argv[1]);
+
+    int prng_choice = -1; // when -1, test all 4. Otherwise 1 = Mersenne, 2 = SFMT, 3 = MersenneA, 4 = SFMTA
+    if (argc > 2) prng_choice = atoi(argv[2]);
+
+    switch(prng_choice)
+    {
+        case -1:
+            test_each(seed);
+            break;
+        case 1:
+            dotest<CRandomMersenne>(seed);
+            break;
+        case 2:
+            dotest<CRandomSFMT>(seed);
+            break;
+        case 3:
+            dotest<CRandomMersenneA>(seed);
+            break;
+        case 4:
+            dotest<CRandomSFMTA>(seed);
+            break;
+    }
+
+    return 0;
 }
