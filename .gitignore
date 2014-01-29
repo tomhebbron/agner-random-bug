@@ -3,7 +3,13 @@ tmp-agner-src/
 agner-src/
 pyAgnerRandom.cpp
 pyAgnerRandom.pyd
+pyAgnerRandom.so
 *.exe
+minimal_randoma_test
+minimal_randoma_test.exe
+
+
+*.dSYM/
 
 .idea/
 

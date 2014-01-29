@@ -15,7 +15,7 @@ ifeq ($(OS),Windows_NT)
 else
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Darwin)
-        AGNER_LIB := $(AGNER_DIR)/libamac32.a
+        AGNER_LIB := $(AGNER_DIR)/libamac64.a
     endif
 endif
 
